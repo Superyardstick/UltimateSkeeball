@@ -1,0 +1,42 @@
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2); 
+int score = 0;
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  lcd.init();       // initialize the LCD
+  lcd.clear();      // clear the LCD display
+  lcd.backlight();  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+    
+    if (digitalRead(1) == LOW){
+      score = score + 100;
+      Serial.println("score");
+      lcd.setCursor(5,0);
+      lcd.print(score);
+      while (digitalRead(1) == LOW){}
+    }
+    else if (digitalRead(2) == LOW){
+      Serial.println("score2");
+    }
+    else if (digitalRead(3) == LOW){
+      Serial.println("score3");
+    }
+    else if (digitalRead(4) == LOW){
+      Serial.println("score4");
+    }
+    else if (digitalRead(5) == LOW){
+      Serial.println("score5");
+    }
+    else if (digitalRead(6) == LOW){
+      Serial.println("score6");
+    }
+    else if (digitalRead(7) == LOW){
+      Serial.println("score7");
+    }
+    delay(100);
+
+}
